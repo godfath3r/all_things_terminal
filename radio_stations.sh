@@ -3,7 +3,7 @@
 # 
 
 PS3='Please Choose a radio station to play: '
-options=("Pepper 96.6" "Red 96.3" "Quit")
+options=("Pepper 96.6" "Red 96.3" "Athens RockFm 96.9" "Quit")
 select opt in "${options[@]}"
 do
    case $opt in
@@ -14,6 +14,10 @@ do
       "Red 96.3")
          echo -e "\e[00;31m Now playing RedFm 96.3\e[00m"
          mplayer http://radioskaigroup-lh.akamaihd.net/i/RedFM_1@178672/master.m3u8
+         ;;
+      "Athens RockFm 96.9")
+         echo -e "\e[00;31m Now playing Athens RockFm 96.9\e[00m"
+         mplayer http://91.132.6.21:8003/
          ;;
       "Quit")
          break
