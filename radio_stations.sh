@@ -9,15 +9,15 @@ do
    case $opt in
       "Pepper 96.6")
          echo -e "\e[00;31m Now playing Pepper 96.6 Fm\e[00m"
-         mplayer http://pepper966.live24.gr:80/pepper9660
+         mplayer -cache 1906 http://pepper966.live24.gr:80/pepper9660
          ;;
       "Red 96.3")
          echo -e "\e[00;31m Now playing RedFm 96.3\e[00m"
-         mplayer http://radioskaigroup-lh.akamaihd.net/i/RedFM_1@178672/master.m3u8
+         mplayer -cache 2906 http://radioskaigroup-lh.akamaihd.net/i/RedFM_1@178672/master.m3u8
          ;;
       "Athens RockFm 96.9")
          echo -e "\e[00;31m Now playing Athens RockFm 96.9\e[00m"
-         mplayer http://91.132.6.21:8003/
+         mplayer -cache 1906 http://91.132.6.21:8003/
          ;;
       "Quit")
          break
