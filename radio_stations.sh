@@ -3,10 +3,14 @@
 # 
 
 PS3='Please Choose a radio station to play: '
-options=("Pepper 96.6" "Red 96.3" "Athens RockFm 96.9" "Quit")
+options=("My Music" "Pepper 96.6" "Red 96.3" "Athens RockFm 96.9" "Quit")
 select opt in "${options[@]}"
 do
    case $opt in
+      "My Music")
+         echo -e "\e[00;31m Now playing Home Music!!!\e[00m"
+         mplayer -cache 1906 -cache-min 15 http://kermit:8001/
+         ;;
       "Pepper 96.6")
          echo -e "\e[00;31m Now playing Pepper 96.6 Fm\e[00m"
          mplayer -cache 1906 http://pepper966.live24.gr:80/pepper9660
