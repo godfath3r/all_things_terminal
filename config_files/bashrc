@@ -9,12 +9,21 @@
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoredups #don't put duplicate lines in the history.
 
+
 # Commands Shortcuts
 alias ..="cd .."
 alias ...="cd ../.."
 alias ls="ls -F --color=auto"
 alias la="ls -lah"
 alias watch="watch --color"
+alias vi="vim"
+
+# Grep aliases
+grepfunction() {
+   grep $1 * -Rn --color=auto
+}
+alias grepr=grepfunction
+alias grep="grep --color=auto"
 
 # Other usefull commands
 alias find_small_files="sudo find / -size +50M"
@@ -22,4 +31,4 @@ alias find_medium_files="sudo find / -size +150M"
 alias find_large_files="sudo find / -size +700M"
 alias find_extra_large_files="sudo find / size +2G"
 
-alias find_hosts="sudo nmap -sP 192.168.1.1/24" #Find hosts connected to networ
+alias find_hosts="sudo nmap -sP 192.168.1.1/24" #Find hosts connected to network
