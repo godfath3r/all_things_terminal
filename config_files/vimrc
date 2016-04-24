@@ -1,0 +1,49 @@
+" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing archlinux.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+" runtime! archlinux.vim
+set history=5000                  " keep 50 lines of command line history
+set ruler                         " show the cursor position all the time
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+:set nocompatible	" VIM settings instead of vi settings
+:syntax on
+:syntax enable
+:filetype plugin on
+:set number         " Show line numbers
+:set relativenumber	" Show relative line numbers
+:set hlsearch		" Hightlight search
+:set incsearch		" Do incremental searching
+:set ls=2
+
+" Tab settings:
+:set smarttab
+:set shiftwidth=4
+:set tabstop=4     " Tab is 4 characters long
+:set softtabstop=4
+:set expandtab     " Expand tabs as whitespace
+
+
+" These are option for vim-taglist plugin that helps you walk through code on
+" vim
+let Tlist_Compact_Format = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select = 1
+nnoremap <C-l> :TlistToggle<CR>
+" When editing a file, always jump to the last known cursor position.
+"  " Don't do it when the position is invalid or when inside an event handler
+"   " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+       \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+   \   exe "normal! g`\"" |
+   \ endif
+
