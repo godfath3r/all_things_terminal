@@ -12,6 +12,10 @@
 set history=5000                  " keep 50 lines of command line history
 set ruler                         " show the cursor position all the time
 
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
+
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
@@ -25,6 +29,8 @@ set ruler                         " show the cursor position all the time
 :set incsearch		" Do incremental searching
 :set ls=2
 
+set backspace=indent,eol,start  " more powerful backspacing
+
 " Tab settings:
 :set smarttab
 :set shiftwidth=4
@@ -32,6 +38,9 @@ set ruler                         " show the cursor position all the time
 :set softtabstop=4
 :set expandtab     " Expand tabs as whitespace
 
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
 
 " These are option for vim-taglist plugin that helps you walk through code on
 " vim
@@ -46,4 +55,3 @@ nnoremap <C-l> :TlistToggle<CR>
        \ if line("'\"") >= 1 && line("'\"") <= line("$") |
    \   exe "normal! g`\"" |
    \ endif
-
