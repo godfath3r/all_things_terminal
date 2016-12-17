@@ -2,6 +2,9 @@
 #
 # Append to your /etc/bashrc or ~/.bashrc
 # $ echo bashrc >> /etc/bashrc 
+# or:
+# export all_things_terminal/config_files/bashrc 
+# into your ~/.bashrc
 #
 ################################################################################
 
@@ -9,23 +12,38 @@
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoredups #don't put duplicate lines in the history.
 
-
-# Commands Shortcuts
+# Aliases - Commands Shortcuts
 alias ..="cd .."
 alias ...="cd ../.."
 alias ls="ls -F --color=auto"
+alias ll="ls -lrt"
 alias la="ls -lah"
 alias watch="watch --color"
 alias vi="vim"
+alias cdl=cdfunction
+alias grep="grep --color=auto"
+alias grepi="grep -i --color=auto"  # case insensitive
+alias grepr=grepfunction
 
-# Grep aliases
+# Functions
 grepfunction() {
    grep $1 * -Rn --color=auto
 }
-alias grepr=grepfunction
-alias grep="grep --color=auto"
 
-# Other usefull commands
+cdfunction() {
+    cd "$*"
+    ll
+}
+
+watch_() {
+    watch -c "$(history -p !!)"
+}
+
+sudo_() {
+    sudo "$(history -p !!)"
+}
+
+# Other usefull aliases
 alias find_small_files="sudo find / -size +50M"
 alias find_medium_files="sudo find / -size +150M"
 alias find_large_files="sudo find / -size +700M"
@@ -34,3 +52,6 @@ alias find_extra_large_files="sudo find / size +2G"
 alias find_hosts="sudo nmap -sP 192.168.1.1/24" #Find hosts connected to network
 
 alias show_external_ip="curl http://checkip.dyndns.org:8245/ | grep IP | awk '{gsub(/<.*/, \"\", \$6); print \$6}'"
+
+# Arch Linux related
+alias pacman_installed="pacman -Qen"  # Lists explicitly installed packages available at repos
