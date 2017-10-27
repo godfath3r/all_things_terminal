@@ -7,7 +7,7 @@
 # recipient='test_mail@host.com'
 
 old=`cat /tmp/ip`
-current=`curl http://checkip.dyndns.org:8245/ | grep "IP" | awk '{gsub(/<.*/, "", $6); print $6}'`
+current=`curl -s http://checkip.dyndns.org:8245 | grep -Po '(\d{1,3}\.?){4}'`
 if [ "$old" != "$current" ]; then
   echo $current > /tmp/ip
   notify-send "Your IP changed to:" $current
