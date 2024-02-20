@@ -55,3 +55,10 @@ alias show_external_ip="curl http://checkip.dyndns.org:8245/ | grep IP | awk '{g
 
 # Arch Linux related
 alias pacman_installed="pacman -Qen"  # Lists explicitly installed packages available at repos
+
+alias psgrep="ps -ef | grep -i $@"
+
+alias sudo="sudo -E"
+alias sn="sudo dmidecode -t system"
+
+alias ip='ip -color=auto'
